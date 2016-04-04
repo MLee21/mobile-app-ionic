@@ -39,7 +39,11 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
   });
 
   $scope.getTasks = function () {
-
+    if (localStorageService.get(taskData)) {
+      $scope.tasks = localStorageService.get(taskData);
+    } else {
+      $scope.tasks = [];
+    }
   }
 
   $scope.createTask = function () {
@@ -51,6 +55,6 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
   }
 
   $scope.completeTask = function () {
-    
+
   }
 });
