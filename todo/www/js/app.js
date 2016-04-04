@@ -53,8 +53,9 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
     $scope.newTaskModal.hide();
   }
 
-  $scope.removeTask = function () {
-
+  $scope.removeTask = function (index) {
+    $scope.tasks.splice(index, 1);
+    localStorageService.set(taskData, $scope.tasks);
   }
 
   $scope.completeTask = function () {
