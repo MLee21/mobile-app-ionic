@@ -26,3 +26,8 @@ var app = angular.module('starter', ['ionic', 'LocalStorageModule'])
 app.config(function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('starter');
 });
+
+app.controller('main', function ($scope, $ionicModal, localStorageService) {
+  $scope.tasks = [];
+  $scope.task = {};
+});
