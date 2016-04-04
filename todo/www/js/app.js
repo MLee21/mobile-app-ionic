@@ -37,4 +37,20 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
   }).then(function (modal) {
     $scope.newTaskModal = modal;
   });
+
+  $scope.getTasks = function () {
+
+  }
+
+  $scope.createTask = function () {
+
+  }
+
+  $scope.removeTask = function () {
+
+  }
+
+  $scope.completeTask = function () {
+    
+  }
 });
