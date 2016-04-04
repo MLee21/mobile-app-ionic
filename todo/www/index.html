@@ -26,7 +26,10 @@
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+        <h1 class="title">Todo App</h1>
+        <button class="button button-icon" ng-click="openTaskModal()">
+        <i class="icon ion-compose"></i>
+    </button>
       </ion-header-bar>
       <ion-content>
       <div class="list card" ng-repeat="task in tasks track by $index">
@@ -52,5 +55,40 @@
       </div>
       </ion-content>
     </ion-pane>
+      <script id="new-task-modal.html" type="text/ng-template">
+      <ion-modal-view>
+          <ion-header-bar class="bar-dark">
+              <h1 class="title">Create a new Task</h1>
+              <button class="button button-icon" ng-click="closeTaskModal()">
+                  <i class="icon ion-android-close"></i>
+              </button>
+          </ion-header-bar>
+          <ion-content>
+              <form ng-submit="createTask()">
+                  <div class="list list-inset">
+                      <label class="item item-input">
+                          <input ng-model="task.title" type="text" placeholder="Task title">
+                      </label>
+                      <label class="item item-input">
+                          <textarea ng-model="task.content" rows="5" placeholder="Task content"></textarea>
+                      </label>
+                      <ul class="list">
+                          <li class="item item-toggle">
+                              Completed?
+                              <label class="toggle toggle-balanced">
+                                  <input type="checkbox" ng-model="task.completed">
+
+                                  <div class="track">
+                                      <div class="handle"></div>
+                                  </div>
+                              </label>
+                          </li>
+                      </ul>
+                      <button type="submit" class="button button-block button-positive">Create Task</button>
+                  </div>
+              </form>
+          </ion-content>
+      </ion-modal-view>
+    </script>
   </body>
 </html>

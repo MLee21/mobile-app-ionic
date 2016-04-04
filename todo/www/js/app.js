@@ -28,6 +28,8 @@ app.config(function (localStorageServiceProvider) {
 });
 
 app.controller('main', function ($scope, $ionicModal, localStorageService) {
+  var taskData = 'task';
+
   $scope.tasks = [];
   $scope.task = {};
 
@@ -64,4 +66,13 @@ app.controller('main', function ($scope, $ionicModal, localStorageService) {
     }
     localStorageService.set(taskData, $scope.tasks);
   }
+
+  $scope.openTaskModal = function () {
+      $scope.newTaskModal.show();
+  };
+
+  $scope.closeTaskModal = function () {
+      $scope.newTaskModal.hide();
+  };
+
 });
