@@ -30,4 +30,11 @@ app.config(function (localStorageServiceProvider) {
 app.controller('main', function ($scope, $ionicModal, localStorageService) {
   $scope.tasks = [];
   $scope.task = {};
+
+  $ionicModal.fromTemplateUrl('new-task-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.newTaskModal = modal;
+  });
 });
